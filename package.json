@@ -1,0 +1,8 @@
+{
+  "name": "bcs-hackathon-workshop-chat",
+  "version": "0.0.1",
+  "description": "Small app to demonstrate NodeJS, Express, and Socket.IO",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
