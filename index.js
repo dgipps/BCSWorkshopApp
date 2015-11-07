@@ -1,11 +1,14 @@
 var app = require('express')();
+var express = require('express');
 var http = require('http').Server(app);
 
 var port = 3000;
 
 app.get('/', function (req, res) {
-  res.send('<h1>Hello BCSers</h1>');
+  res.sendFile(__dirname + '/public/index.html');
 });
+
+app.use(express.static('public'));
 
 
 http.listen(port, function(){
