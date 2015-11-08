@@ -13,8 +13,13 @@ app.use(express.static('public'));
 
 io.on('connection', function (socket) {
   console.log('User connected');
+
   socket.on('disconnect', function(){
     console.log('User disconnected');
+  });
+
+  socket.on('message', function(msg) {
+    console.log("Message: " + msg);
   });
 });
 
