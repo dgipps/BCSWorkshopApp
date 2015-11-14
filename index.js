@@ -15,20 +15,21 @@ app.use(express.static('public'));
 
 // Code in this block is run every time a new socketIO connection is made
 io.on('connection', function (socket) {
-  console.log('User connected');
+  // socket.id is a unique id for each socket connection
+  console.log(socket.id + ' connected');
 
   // The following two declarations create handlers for
   // socket events on this specific connection
 
   // You can do something when the connection disconnects
   socket.on('disconnect', function(){
-    console.log('User disconnected');
+    console.log(socket.id + ' disconnected');
   });
 
   // message is our custom event, emit the message to everyone
   socket.on('message', function(msg) {
     console.log("Message: " + msg);
-    io.emit('user-message', msg);
+    io.emit('user-message', socket.id + ": " + msg);
   });
 });
 
